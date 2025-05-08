@@ -6,8 +6,8 @@ import org.k8.springcloud.msvc.courses.entities.Course;
 
 public interface CourseService {
 
-    Iterable<Course> findaAll();
-    Optional<Course> findById(Long id);
+    Iterable<Course> findAll();
+    Optional<Course> findCourseById(Long id);
     Course save(Course course);
     void delete(Long id);
 

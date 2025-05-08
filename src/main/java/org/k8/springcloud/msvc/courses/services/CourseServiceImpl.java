@@ -18,13 +18,13 @@ public class CourseServiceImpl implements CourseService{
 
     @Override
     @Transactional(readOnly = true)
-    public Iterable<Course> findaAll() {
+    public Iterable<Course> findAll() {
         return courseRepository.findAll();
     }
 
     @Override
     @Transactional(readOnly = true)
-    public Optional<Course> findById(Long id) {
+    public Optional<Course> findCourseById(Long id) {
         return courseRepository.findById(id);
     }
 
