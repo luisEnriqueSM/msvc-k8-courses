@@ -2,7 +2,7 @@ package org.k8.springcloud.msvc.courses.services;
 
 import java.util.Optional;
 
-import org.k8.springcloud.msvc.courses.entities.Course;
+import org.k8.springcloud.msvc.courses.models.entities.Course;
 
 public interface CourseService {
 

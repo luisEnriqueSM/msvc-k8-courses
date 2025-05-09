@@ -1,4 +1,4 @@
-package org.k8.springcloud.msvc.courses.entities;
+package org.k8.springcloud.msvc.courses.models.entities;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
