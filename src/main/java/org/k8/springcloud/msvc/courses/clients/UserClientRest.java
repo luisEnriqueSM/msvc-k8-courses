@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 @FeignClient(name = "msvc-k8-users", url = "localhost:8001")
 public interface UserClientRest {
 
-    @GetMapping("/{id}")
+    @GetMapping("/{userId}")
     UserDto getUser(@PathVariable Long userId);
 
     @PostMapping
