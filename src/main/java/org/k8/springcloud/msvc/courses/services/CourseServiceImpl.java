@@ -1,6 +1,8 @@
 package org.k8.springcloud.msvc.courses.services;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.k8.springcloud.msvc.courses.clients.UserClientRest;
 import org.k8.springcloud.msvc.courses.models.UserDto;
@@ -95,4 +97,24 @@ public class CourseServiceImpl implements CourseService{
         }
         return Optional.empty();
     }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Optional<Course> findCourseByIdWithUsers(Long id) {
+        Optional<Course> o = courseRepository.findById(id);
+        if(o.isPresent()){
+            Course course = o.get();
+            if(!course.getCourseUsers().isEmpty()){
+                List<Long> ids = course.getCourseUsers().stream()
+                    .map(CourseUser::getUserId)
+                    .collect(Collectors.toList());
+
+                List<UserDto> client = userClientRest.getUsersByCourse(ids);
+                course.setUsers(client);
+            }
+            return Optional.of(course);
+        }
+        return Optional.empty();
+    }
+    
 }

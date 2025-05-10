@@ -38,7 +38,7 @@ public class CourseController {
 
     @GetMapping("/{id}")
     public ResponseEntity<Course> getCourseById(@PathVariable Long id){
-        return courseService.findCourseById(id).map(course -> ResponseEntity.ok().body(course))
+        return courseService.findCourseByIdWithUsers(id).map(course -> ResponseEntity.ok().body(course))
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
