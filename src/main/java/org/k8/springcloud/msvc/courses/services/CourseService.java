@@ -9,9 +9,10 @@ public interface CourseService {
 
     Iterable<Course> findAll();
     Optional<Course> findCourseById(Long id);
+    Optional<Course> findCourseByIdWithUsers(Long id);
     Course save(Course course);
     void delete(Long id);
-    Optional<Course> findCourseByIdWithUsers(Long id);
+    void deleteCourseUserById(Long userId);
 
     Optional<UserDto> assignUser(UserDto user, Long courseId);
     Optional<UserDto> createUser(UserDto user, Long courseId);
