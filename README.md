@@ -1,6 +1,6 @@
 # msvc-k8-courses
 
-## Contenedor PostgreSQL
+## Contenedores
 
 ```bash
 # Servidor Postgresql
@@ -8,6 +8,9 @@ docker run -d --name postgres-container -e POSTGRES_USER=postgres -e POSTGRES_PA
 
 # pgAdmin
 docker run --name pgadmin-container -e PGADMIN_DEFAULT_EMAIL=admin@admin.com -e PGADMIN_DEFAULT_PASSWORD=admin -p 8080:80 --network springcloud --link postgres-container:postgres -d dpage/pgadmin4
+
+# Crear contenedor para msvc-k8-courses
+docker run -d -p 8002:8002 --name msvc-k8-courses --network springcloud msvc-k8-courses:v1
 
 # Acceder a pdAdmin
 
