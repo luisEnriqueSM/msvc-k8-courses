@@ -4,13 +4,13 @@
 
 ```bash
 # Servidor Postgresql
-docker run -d --name postgres-container -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=sasa -e POSTGRES_DB=msvc-k8-courses --network springcloud -v postgres_data_volume:/var/lib/postgresql/data -p 5432:5432 postgres:latest
+docker run -d --name postgres-container -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=sasa -e POSTGRES_DB=msvc-k8-courses --network springcloud -v postgres_data_volume:/var/lib/postgresql/data -p 5432:5432 --restart=always postgres:latest
 
 # pgAdmin
-docker run --name pgadmin-container -e PGADMIN_DEFAULT_EMAIL=admin@admin.com -e PGADMIN_DEFAULT_PASSWORD=admin -p 8080:80 --network springcloud --link postgres-container:postgres -d dpage/pgadmin4
+docker run --name pgadmin-container -e PGADMIN_DEFAULT_EMAIL=admin@admin.com -e PGADMIN_DEFAULT_PASSWORD=admin -p 8080:80 --restart=always --network springcloud --link postgres-container:postgres -d dpage/pgadmin4
 
 # Crear contenedor para msvc-k8-courses
-docker run -d -p 8002:8002 --name msvc-k8-courses --network springcloud msvc-k8-courses:v1
+docker run -d -p 8002:8002 --name msvc-k8-courses --network springcloud --restart=always msvc-k8-courses:v1
 
 # Acceder a pdAdmin
 
