@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
-@FeignClient(name = "msvc-k8-users", url = "msvc-k8-users:8001")
+@FeignClient(name = "msvc-k8-users", url = "${msvc.users.url}")
 public interface UserClientRest {
 
     @GetMapping("/{userId}")
