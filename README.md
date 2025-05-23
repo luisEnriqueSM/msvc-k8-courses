@@ -12,6 +12,9 @@ docker run --name pgadmin-container -e PGADMIN_DEFAULT_EMAIL=admin@admin.com -e 
 # Crear contenedor para msvc-k8-courses
 docker run -d -p 8002:8002 --name msvc-k8-courses --network springcloud --restart=always msvc-k8-courses:v1
 
+# Crear contenedor para msvc-k8-courses leyendo archivo de variables de entorno
+docker run -p 8002:8002 --env-file .env -d --rm --name msvc-k8-courses --network springcloud msvc-k8-courses:latest
+
 # Acceder a pdAdmin
 
 1. Ir a: http://localhost:8080
