@@ -30,3 +30,17 @@ Hostname: postgres
 Port: 5432
 Username: postgres
 Password: sasa
+```
+## Integración con otros servicios:
+
+Este servicio se comunica directamente con el servicio msvc-k8-users:
+####  https://github.com/luisEnriqueSM/msvc-k8-users
+
+## Docker Hub:
+
+#### luisenriquesm/msvc-k8-courses: https://hub.docker.com/repository/docker/luisenriquesm/msvc-k8-courses/general
+
+#### luisenriquesm/msvc-k8-users: https://hub.docker.com/repository/docker/luisenriquesm/msvc-k8-users/general
+
+## Docker Compose: 
+#### https://github.com/luisEnriqueSM/msvc-k8-docker-compose
