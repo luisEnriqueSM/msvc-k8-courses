@@ -44,3 +44,23 @@ Este servicio se comunica directamente con el servicio msvc-k8-users:
 
 ## Docker Compose: 
 #### https://github.com/luisEnriqueSM/msvc-k8-docker-compose
+
+## Docker version in details:
+
+#### - [luisenriquesm/msvc-k8-courses:v1](https://hub.docker.com/repository/docker/luisenriquesm/msvc-k8-courses/tags/v1/sha256:2817a6e673b1e45d1bbacfe30fc6c8184da080b68d7012572357d1fdb30e345a)
+
+OS/ARCH: linux/arm64
+
+Version to be able to run on Local.
+
+#### - [luisenriquesm/msvc-k8-courses:v2](https://hub.docker.com/repository/docker/luisenriquesm/msvc-k8-courses/tags/v2/sha256:baf07c3d0994391a99ac701ca9baef44b5fdd36e23a19eb486b17ecdb7bbdc06)
+
+OS/ARCH: linux/amd64
+
+Version to be able to run on AWS EC2 and ECS.
+
+#### - [luisenriquesm/msvc-k8-courses:v3](https://hub.docker.com/repository/docker/luisenriquesm/msvc-k8-courses/tags/v3/sha256:50463843353e771b61edc4ad8e995a520a34f35ae9cd0efe7e5742306d038f7a)
+
+OS/ARCH: linux/arm64
+
+This version includes the integration with Spring Cloud Kubernetes. No more hard coded url all are handled by Kubernetes.
