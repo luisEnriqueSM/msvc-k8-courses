@@ -8,6 +8,10 @@ import java.util.Optional;
 import org.k8.springcloud.msvc.courses.models.UserDto;
 import org.k8.springcloud.msvc.courses.models.entities.Course;
 import org.k8.springcloud.msvc.courses.services.CourseService;
+import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.core.env.Environment;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
@@ -26,14 +30,26 @@ import jakarta.validation.Valid;
 public class CourseController {
 
     private CourseService courseService;
+    private ApplicationContext context;
+    private Environment env;
 
-    public CourseController(CourseService courseService) {
+    public CourseController(CourseService courseService, Environment environment) {
         this.courseService = courseService;
+        this.env = environment;
+    }
+
+    @GetMapping("/crash")
+    public void crash(){
+        ((ConfigurableApplicationContext)context).close();
     }
 
     @GetMapping
-    public ResponseEntity<Iterable<Course>> list(){
-        return ResponseEntity.ok().body(courseService.findAll());
+    public ResponseEntity<Map<String, Object>> list(){
+        Map<String, Object> body = new HashMap<>();
+        body.put("courses", courseService.findAll());
+        body.put("pod_Info", env.getProperty("MY_POD_NAME") + " : " + env.getProperty("MY_POD_IP"));
+        body.put("texto", env.getProperty("config.texto"));
+        return ResponseEntity.ok().body(body);
     }
 
     @GetMapping("/{id}")
