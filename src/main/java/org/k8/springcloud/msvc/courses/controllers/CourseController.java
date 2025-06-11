@@ -32,7 +32,7 @@ public class CourseController {
     private ApplicationContext context;
     private Environment env;
 
-    public CourseController(CourseService courseService, Environment environment) {
+    public CourseController(CourseService courseService, ApplicationContext context, Environment environment) {
         this.courseService = courseService;
         this.context = context;
         this.env = environment;
